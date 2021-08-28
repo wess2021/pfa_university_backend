@@ -1,0 +1,37 @@
+.card-register {
+    background-color: #FF8F5E;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 350px;
+    margin: 20px 0 70px;
+    min-height: 400px;
+    padding: 30px;
+}
+.btn-danger {
+    background-color: #f5593d;
+    border-color: #f5593d;
+    color: #FFFFFF;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    border-radius: 1;
+}
+
+
+.card-register {
+    background-color: #FF8F5E;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 350px;
+    margin: 20px 0 70px;
+    min-height: 600px;
+    padding: 30px;
+}

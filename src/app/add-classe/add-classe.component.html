@@ -1,0 +1,27 @@
+<h3 style="text-align: center;">Create Classe</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup] = "classesaveform">  
+          <div class="form-group">  
+              <label for="name">Classe Name</label>  
+              <input type="text" class="form-control"  formControlName="classe_name" data-toggle="tooltip"   
+                 data-placement="right" title="Enter classe Name" >  
+             
+          </div>  
+   
+          <div class="form-group">
+            <label for="exampleInputEmail1">Departement</label>
+            
+<select   class="form-control"  (change)="onSelectFile($event)">
+<option *ngFor= "let departement of alldepartements " value="{{departement.departement_id}}" >{{departement.departement_name}}</option>
+</select>
+          </div>    
+   
+        <button type="submit" class="btn btn-success"  (click)="save(classesaveform)" >Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  

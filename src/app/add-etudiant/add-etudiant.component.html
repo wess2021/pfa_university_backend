@@ -1,0 +1,49 @@
+<h3 style="text-align: center;">Create Etudiant</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="etudiantsaveform">  
+          <div class="form-group">  
+              <label for="fullname_etu">Etudiant FullName</label>  
+              <input type="text" class="form-control" formControlName="fullname_etu" data-toggle="tooltip"   
+              data-placement="right" title="Enter fullname_etudiant" >  
+              
+          </div>  
+          <div class="form-group">  
+            <label for="adresse">adresse</label>  
+            <input type="text" class="form-control"  formControlName="adresse" data-toggle="tooltip"   
+               data-placement="right" title="Enter adresse" >  
+           
+        </div>  
+        <div class="form-group">  
+          <label for="email">email</label>  
+          <input type="email" class="form-control"  formControlName="email" data-toggle="tooltip"   
+             data-placement="right" title="Enter email" >  
+          
+      </div>  
+      <div class="form-group">  
+        <label for="telephone">telephone</label>  
+        <input type="email" class="form-control"  formControlName="tel" data-toggle="tooltip"   
+           data-placement="right" title="Enter telephone" >  
+        
+    </div>  
+    <div class="form-group">  
+      <label for="cin">CIN</label>  
+      <input type="email" class="form-control"  formControlName="cin" data-toggle="tooltip"   
+         data-placement="right" title="Enter carte didentite" >  
+      
+  </div>  
+          <div class="form-group">
+            <label for="exampleInputEmail1">Classes</label>
+            
+<select   class="form-control"  (change)="onSelectFile($event)">
+<option *ngFor= "let classe of allclasses " value="{{classe.id}}" >{{classe.classe_name}}</option>
+</select>
+          </div>
+        <button type="submit" (click)="save(etudiantsaveform)" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  

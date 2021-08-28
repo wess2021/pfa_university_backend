@@ -1,0 +1,38 @@
+
+      <h1 style="text-align: center">Matieres</h1><br>  
+     
+  
+      <label>Rechercher par nom<input type="text" [(ngModel)]="x" name="x"></label>
+
+
+<div *ngIf="table_filtre;else sinon" style="width: 100%;">
+  <br><br>
+    
+  <div class="panel-body">  
+      <table style="text-align: center; " class="table table-success table-striped">  
+        
+              <tr>  
+                <th>Matiere Id</th>  
+                  <th>Matiere Name</th>  
+                  
+                   
+                  <th>Action</th>  
+                    
+              </tr>  
+    
+          <tbody>  
+               <tr *ngFor="let matiere of table_filtre "> 
+                <td>{{matiere.matiere_id}}</td>  
+                <td><a href="{{'matiereDetail/'+matiere.matiere_id}}">{{matiere.matiere_name|uppercase}}</a></td>   
+    
+                  
+                  <td><button (click)="deleteMatiere(matiere.matiere_id)" class='btn btn-primary'>Delete</button>   
+                    <button (click)="updateMatiere(matiere.matiere_id)" class='btn btn-info'  >Update</button>  
+                  </td>  
+                </tr>   
+          </tbody><br>  
+          <ng-template #sinon><p>Le tableau est vide</p></ng-template>
+      </table>  
+  </div>  
+</div>   
+  

@@ -1,0 +1,27 @@
+<h2 style="text-align: center;">Details User</h2>
+
+<table style="text-align: center; " class="table table-success table-striped">
+  
+  <tr>
+    <th>ID</th>
+    <th>email</th>
+    <th>username</th>
+    
+    <th>role </th>
+    
+ 
+
+  </tr>
+ 
+  <tr>
+    <td>{{user.id}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.username}}</td>
+    <td><li *ngFor="let role of user.roles ">{{role.name}}</li></td>
+   
+   
+ 
+ 
+  
+  </tr>
+</table>

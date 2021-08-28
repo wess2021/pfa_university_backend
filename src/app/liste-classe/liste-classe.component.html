@@ -1,0 +1,47 @@
+<div class="panel panel-default">  
+  <div class="panel-heading">  
+      <h1 style="text-align: center">classes</h1><br>  
+      <div class="row" [hidden]="!deleteMessage">  
+             
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                        <div class="alert alert-info alert-dismissible">  
+                                <button type="button" class="close" data-dismiss="alert">×</button>  
+                                <strong>Classe Data Deleted</strong>  
+                        </div>  
+                </div>  
+                <div class="col-sm-4"></div>  
+        </div>             
+    </div>  
+  
+    
+ 
+      <table style="text-align: center; " class="table table-success table-striped">  
+        
+              <tr>  
+                  <th>Classe Name</th> 
+                  <th>Matieres</th> 
+                  <th>Etudiants</th>  
+                  <th>Enseignants</th>  
+                   
+                  <th>Action</th>  
+                    
+              </tr>  
+    
+          <tbody>  
+               <tr *ngFor="let classe of classes ">  
+                  <td><a href="{{'classeDetail/'+classe.id}}">{{classe.classe_name|uppercase}}</a></td>  
+                  <td><li *ngFor="let matiere of classe.matieres ">{{matiere.matiere_name}}</li></td>
+                  <td><li *ngFor="let etudiant of classe.etudiants ">{{etudiant.fullname_etu}}</li></td>
+                  <td><li *ngFor="let enseignant of classe.enseignants ">{{enseignant.enseignant_fullname}}</li></td>
+                 
+                  
+                  <td><button (click)="deleteClasse(classe.id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>   
+                    <button (click)="updateClasse(classe.id)" class='btn btn-info'  >Update</button>  
+                  </td>  
+                </tr>   
+          </tbody><br>  
+      </table>  
+  </div>  
+
+  

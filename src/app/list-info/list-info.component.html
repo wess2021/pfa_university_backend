@@ -1,0 +1,31 @@
+<h2 style="text-align: center;">list Note d'Info</h2>
+
+<label>Rechercher par tittre<input type="text" [(ngModel)]="x" name="x"></label>
+
+
+<div *ngIf="table_filtre;else sinon" style="width: 100%;">
+  <br><br>
+<table style="text-align: center; " class="table table-primary">
+ 
+    <tr style="text-align: center;">
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Content</th>
+      <th style="text-align: center;">Piece Jointe</th>
+      <th style="text-align: center;">Actions</th>
+    </tr>
+ 
+
+    <tr *ngFor="let info of table_filtre" >
+      <td><a href="{{'infoDetail/'+info.id}}">{{info.title|uppercase}}</a></td>
+      <td>{{info.content}}</td>
+      <td>{{info.file}}</td>
+      <td><button class="btn btn-warning" href="javascript:void(0)" (click)="editinfo(info.id)">  <span class="glyphicon glyphicon-edit"></span></button>
+        <button class="btn btn-danger" href="javascript:void(0)" (click)="deleteinfo(info.id)"><span class="glyphicon glyphicon-trash"></span></button>
+        <button class="btn btn-primary" (click)="download3(info.file)"  type="file"><span class="glyphicon glyphicon-download-alt"></span></button> </td> 
+    </tr>
+    <ng-template #sinon><p>Le tableau est vide</p></ng-template>
+</table>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+

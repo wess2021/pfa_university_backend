@@ -1,0 +1,47 @@
+<h3 style="text-align: center;">Update Etudiant</h3>  
+ 
+      <form (ngSubmit)="onsubmit(f)" #f= ngForm>  
+        <label for="etudiant_id">Id:</label> 
+  <input type="text" name="etudiant_id"  [hidden] class="form-control" placeholder="id du etudiant"  [(ngModel)]="etudiant.etudiant_id" >
+          <div class="form-group">  
+              <label for="fullname_etu">Etudiant FullName</label>  
+              <input type="text" class="form-control"  data-toggle="tooltip" name="fullname_etu"  
+              data-placement="right" title="Enter fullname_etudiant" [(ngModel)]="etudiant.fullname_etu" >  
+              
+          </div>  
+          <div class="form-group">  
+            <label for="adresse">adresse</label>  
+            <input type="text" class="form-control"  data-toggle="tooltip"  name="adresse" 
+               data-placement="right" title="Enter adresse" [(ngModel)]="etudiant.adresse">  
+           
+        </div>  
+        <div class="form-group">  
+          <label for="email">email</label>  
+          <input type="email" class="form-control"   data-toggle="tooltip" name="email"   
+             data-placement="right" title="Enter email" [(ngModel)]="etudiant.email">  
+          
+      </div>  
+      <div class="form-group">  
+        <label for="telephone">telephone</label>  
+        <input type="email" class="form-control"   data-toggle="tooltip" name="tel"  
+           data-placement="right" title="Enter telephone"  [(ngModel)]="etudiant.tel">  
+        
+    </div>  
+    <div class="form-group">  
+      <label for="cin">CIN</label>  
+      <input type="text" class="form-control"   data-toggle="tooltip" name="cin"  
+         data-placement="right" title="Enter carte didentite"  [(ngModel)]="etudiant.cin">  
+      
+  </div>  
+          <div class="form-group">
+            <label for="exampleInputEmail1">Classes</label>
+            
+<select   class="form-control"  (change)="onSelectFile($event)">
+<option *ngFor= "let classe of classes " value="{{classe.id}}" name="class_etudiant" >{{classe.classe_name}}</option>
+</select>
+          </div>
+        <button class="btn btn-success" [disabled]=!f.valid>Submit</button>  
+      </form>  
+ 
+
+

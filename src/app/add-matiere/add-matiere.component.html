@@ -1,0 +1,44 @@
+<h3 style="text-align: center;">Create Matiere</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="matieresaveform">  
+          <div class="form-group">  
+              <label for="name">Matiere Name</label>  
+              <input type="text" class="form-control"  formControlName="matiere_name" data-toggle="tooltip"   
+                 data-placement="right" title="Enter matiere Name" >  
+              <div class="alert alert-danger" *ngIf = "(matiere_name.touched) && (matiere_name.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="matiere_name.errors.required">matiere Name is Required</span>  
+                    <span *ngIf = "matiere_name.errors.minlength">   
+                        MinLength Error   
+                    </span>                     
+                </div>  
+          </div>  
+          <div class="form-group">
+            <label for="exampleInputEmail1">Classes</label>
+            
+<select   class="form-control"  (change)="onSelectFile($event)">
+            
+  <option *ngFor= "let classe of allclasses " value="{{classe.id}}" >{{classe.classe_name}}</option>
+</select>
+          </div>
+                 
+   
+        <button type="submit" (click)="save(matieresaveform)" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>matiere Added SuccessFully!</h4>  
+         <button (click)="addmatiereForm()" class='btn btn-primary'>Add More Matiere</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  

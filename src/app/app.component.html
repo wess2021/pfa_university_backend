@@ -1,0 +1,158 @@
+
+<head>
+	<title>EPI</title>
+
+			 
+</head>
+
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 text-center text-lg-left">
+						<!-- logo -->
+						
+					</div>
+					<div class="col-xl-6 col-lg-5">
+						<form class="header-search-form">
+							
+						</form>
+					</div>
+					<div class="col-xl-4 col-lg-5">
+						<div class="user-panel">
+							<div class="up-item">
+								<i *ngIf="!authority"  class="flaticon-profile"><a href="auth/login">Sign In</a>  or <a href="signup">Create Account</a></i>
+								
+								<i *ngIf="authority"  class="flaticon-profile"><a (click)="logout()" href="home">logout</a> or <a href="signup">Create Account</a></i>
+								
+								<i>
+									<!-- logo -->
+									<a href="./index.html" >
+										<img src="assets/img/11.jpg" alt="" width="50px" height="50px">
+									</a>
+								</i>
+							</div>
+							
+				</div>
+			</div>
+		</div>
+		<nav class="main-navbar">
+			<div class="container">
+				<!-- menu -->
+				<ul class="main-menu">
+				
+					
+					<li *ngIf="authority === 'user'" class="nav-item">
+						<a href="profile">Profile</a>
+						
+					  </li>
+					  <li *ngIf="authority === 'admin'" class="nav-item">
+						<a class="nav-link" routerLink="profile">Admin Profile</a>
+					  </li>
+					  <li *ngIf="authority === 'pm'" class="nav-item">
+						<a class="nav-link" routerLink="profile">Moderator profile</a>
+					  </li>
+					<li><a href="#">CLASSE</a>
+						
+						<ul class="sub-menu">
+							<li><a href="add-classe" *ngIf = "authority === 'pm' ">Ajouter classe</a></li>
+							<li><a href="list-classe">Liste classe</a></li>
+							
+						</ul>
+					</li>
+					<li><a href="#">Departements</a>
+						<ul class="sub-menu">
+							<li><a href="add-departement" *ngIf="authority === 'pm'">Ajouter Departement</a></li>
+							<li><a href="list-departement">Liste Departements</a></li>
+							
+						</ul>
+					</li>
+					<li><a href="#">Nos Cours<span class="new">New</span></a>
+						<ul class="sub-menu">
+							<li><a href="add-cour" *ngIf="authority ==='pm'|| authority ==='admin'">Ajouter Cour</a></li>
+							<li><a href="list-cour">Liste cours</a></li>
+							
+						</ul>
+					</li>
+          <li><a href="#">Matiere</a>
+						<ul class="sub-menu">
+							<li><a href="add-matiere" *ngIf="authority === 'pm'">Ajouter Matiere</a></li>
+							<li><a href="list-matieres">Liste Matieres</a></li>
+							
+						</ul>
+					</li>
+          <li><a href="#">Enseignant</a>
+						<ul class="sub-menu">
+							<li><a href="add-enseignant" *ngIf="authority === 'pm'">Ajouter Enseignant</a></li>
+							<li><a href="list-enseignant">Liste Enseignants</a></li>
+							
+						</ul>
+					</li>
+          <li><a href="#">Etudiants</a>
+						<ul class="sub-menu">
+							<li><a href="add-etudiant" *ngIf="authority === 'pm'">Ajouter Etudiant</a></li>
+							<li><a href="list-etudiants">Liste Etudiants</a></li>
+							
+						</ul>
+					</li>
+					<li>
+						<a href="#" >Note d'Info</a>
+						<ul class="sub-menu">
+							<li><a href="add-info" *ngIf="authority ==='pm'">Ajouter Note</a></li>
+							<li><a href="list-infos">Liste infos</a></li>
+							
+						</ul>
+					</li>
+				
+				
+         	 
+					
+				</ul>
+			</div>
+		</nav>
+ 
+	</div>
+  </div>
+  </header>
+	<!-- Header section end -->
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+	<div id="main">
+	  <div id="content">
+	  
+	  <span class="slide">
+		<button (click)="openSlideMenu()">
+		<i class="fas fa-bars"></i>
+		</button>
+	  </span>
+	  
+	  <div id="menu" class="nav">
+		<button class="close" (click)="closeSlideMenu()">
+		<i class="fas fa-times"></i>
+		</button>
+		<nav class="sidebar">
+			
+				<img src="assets/img/11.jpg"  class="img logo rounded-circle mb-5" style="height: 150px;width: 100px;margin-left: 20px;"/>
+		
+		<a href="home">Home</a>
+		<a href="aboutus">About</a>
+		<li><a href="list-users" *ngIf="authority === 'pm'"> Users</a></li>
+	
+		
+	</nav>
+	  </div>
+	</div>
+	</div>
+	
+	
+	
+<router-outlet></router-outlet>
+

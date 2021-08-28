@@ -1,0 +1,41 @@
+ 
+      <h1 style="text-align: center">Etudiants</h1><br>  
+      
+      <label>Rechercher par email<input type="text" [(ngModel)]="x" name="x"></label>
+
+
+<div *ngIf="table_filtre;else sinon" style="width: 100%;">
+  <br><br>
+    <table style="text-align: center; " class="table table-success table-striped">  
+         
+            <tr>  
+              <th>Etudiant Id</th>  
+                <th>Full Name</th>  
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Cin</th>
+                 
+                <th>Action</th>  
+                  
+            </tr>  
+    
+        <tbody>  
+             <tr *ngFor="let etudiant of table_filtre "> 
+              <td>{{etudiant.etudiant_id}}</td>   
+                <td><a href="{{'etudiantDetail/'+etudiant.etudiant_id}}">{{etudiant.fullname_etu|uppercase}}</a></td> 
+                <td>{{etudiant.adresse}}</td>
+                <td>{{etudiant.email}}</td>
+                <td>{{etudiant.tel}}</td> 
+                <td>{{etudiant.cin}}</td> 
+                
+                <td><button (click)="deleteEtudiant(etudiant.etudiant_id)" class='btn btn-primary'>Delete</button>   
+                  <button (click)="updateEtudiant(etudiant.etudiant_id)" class='btn btn-info'  >Update</button>  
+                </td>  
+              </tr>   
+        </tbody><br>  
+        <ng-template #sinon><p>Le tableau est vide</p></ng-template>
+    </table>  
+</div>  
+
+

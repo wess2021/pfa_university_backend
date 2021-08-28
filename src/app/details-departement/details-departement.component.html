@@ -1,0 +1,29 @@
+<h1 style="text-align: center;">{{departement.departement_name}}</h1><br><br>
+<table style="text-align: center"class="table table-success table-striped" >
+ 
+  <tr >
+    <th>classe Id</th>
+    <th>classe name</th>
+
+  </tr>
+ 
+ 
+ 
+   
+    <tr  *ngFor="let classe of departement.classes">
+      
+        <th>{{classe.id}}</th> 
+        <th>{{classe.classe_name}}</th>
+      
+        
+      
+    </tr>
+ </table>
+
+
+
+
+
+
+
+

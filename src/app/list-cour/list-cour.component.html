@@ -1,0 +1,29 @@
+<h2 style="text-align: center;">list of cours</h2>
+
+<label>Rechercher par tittre<input type="text" [(ngModel)]="x" name="x"></label>
+
+
+<div *ngIf="table_filtre;else sinon" style="width: 100%;">
+  <br><br>
+<table style="text-align: center; " class="table table-primary">
+
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>File upload</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let cour of table_filtre" >
+      <td><a href="{{'courDetail/'+cour.id}}">{{cour.title|uppercase}}</a></td>
+      <td>{{cour.content}}</td>
+      <td>{{cour.file}}</td>
+      <td><button class="btn btn-warning" href="javascript:void(0)" (click)="editcour(cour.id)">  <span class="glyphicon glyphicon-edit"></span></button>
+        <button class="btn btn-danger" href="javascript:void(0)" (click)="deletecour(cour.id)"><span class="glyphicon glyphicon-trash"></span></button>
+        <button class="btn btn-primary" (click)="download3(cour.file)"  type="file"><span class="glyphicon glyphicon-download-alt"></span></button> </td> 
+    </tr>
+    <ng-template #sinon><p>Le tableau est vide</p></ng-template>
+</table>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

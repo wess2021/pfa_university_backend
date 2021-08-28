@@ -1,0 +1,46 @@
+<table style="text-align: center; " class="table table-success table-striped">
+  
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Content</th>
+    
+    <th>Updated AT</th>
+    <th>Created At</th>
+    <th>Cour PDF</th>
+ 
+
+  </tr>
+ 
+  <tr>
+    <td>{{cour.id}}</td>
+    <td>{{cour.title}}</td>
+    <td>{{cour.content}}</td>
+    <td>{{cour.updateDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+    <td>{{cour.createdDate| date: 'dd/MM/yyyy HH:mm' }}</td>
+    <td> 
+      <button (click)="download3(cour.file)" class="btn btn-info" > {{cour.file }}</button>
+  </td>
+ 
+ 
+  
+  </tr>
+</table>
+<div>
+  
+ <form (ngSubmit)="onsubmit(f)" #f=ngForm> 
+  <div class="form-group"> 
+    <label for="content">Commenter</label> 
+    <input type="text" name="content" class="form-control" placeholder="commentaire"  required ngModel>
+   
+  </div>            
+  <button class="btn btn-success">Commenter</button> 
+</form>
+</div>
+<div>
+<h3 style="text-align: center;">commentaires</h3>
+<p *ngFor="let comment of cour.comments" style="text-align: center; font-weight: bold;" >  {{comment.email }}<br>
+  {{comment.content }} |{{comment.createDate| date: 'dd/MM/yyyy HH:mm' }}</p>
+</div>
+
+

@@ -1,0 +1,26 @@
+<h3 style="text-align: center;">Update Matiere</h3>  
+ 
+<form (ngSubmit)="onsubmit(f)" #f= ngForm>  
+  <label for="matiere_id">Id:</label> 
+<input type="text" name="matiere_id"   [hidden] class="form-control"   [(ngModel)]="matiere.matiere_id" >
+    <div class="form-group">  
+        <label for="matiere_name">Matiere Name</label>  
+        <input type="text" class="form-control"  data-toggle="tooltip" name="matiere_name"  
+        data-placement="right" title="Enter matiere name" [(ngModel)]="matiere.matiere_name" >  
+        
+    </div>  
+   
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Classes</label>
+      
+<select   class="form-control"  (change)="onSelectFile($event)">
+<option *ngFor= "let classe of classes " value="{{classe.id}}" name="classes" >{{classe.classe_name}}</option>
+</select>
+    </div>
+  <button class="btn btn-success" [disabled]=!f.valid>Submit</button>  
+</form>  
+
+
+
+

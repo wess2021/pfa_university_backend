@@ -1,0 +1,50 @@
+<h2 style="text-align: center;">List Users</h2>
+
+<div>
+  <table style="text-align: center; " class="table table-success table-striped">
+    
+    <tr>
+  
+      <th>id</th>
+      <th>email</th>
+     
+      <th>username</th>
+      <th>roles</th>
+      <th>Action</th>
+  
+      
+    </tr>
+    <tr *ngFor="let profile of users" >
+      <td>{{profile.id}}</td>
+      <td><a href="{{'userDetail/'+profile.id}}">{{profile.email|uppercase}}</a></td>
+  
+      <td>{{profile.username}}</td>
+      <td><li *ngFor="let role of profile.roles ">{{role.name}}</li></td>
+      <td><button (click)="deleteUser(profile.id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>   
+        <button (click)="updateUser(profile.id)" class='btn btn-info'  >Update</button>  
+      </td>  
+     
+      
+      </tr>
+  </table>
+  </div>
+  <h2 style="text-align: center;">Roles</h2>
+  <div>
+    <table style="text-align: center; " class="table table-success table-striped">
+      
+      <tr>
+    
+       
+        <th>role</th>
+        
+        
+      </tr>
+      <tr  *ngFor="let profile of users" >
+       
+        <td><li *ngFor="let role of profile.roles ">{{role.name}}</li></td>
+       
+        
+        </tr>
+    </table>
+    </div>
+    

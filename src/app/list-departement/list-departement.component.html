@@ -1,0 +1,45 @@
+<div class="panel panel-default">  
+  <div class="panel-heading">  
+      <h1 style="text-align: center">Departements</h1><br>  
+      <div class="row" [hidden]="!deleteMessage">  
+             
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                        <div class="alert alert-info alert-dismissible">  
+                                <button type="button" class="close" data-dismiss="alert">×</button>  
+                                <strong>Departement Data Deleted</strong>  
+                        </div>  
+                </div>  
+                <div class="col-sm-4"></div>  
+        </div>             
+    </div>  
+  
+    
+ 
+      <table style="text-align: center; " class="table table-success table-striped">  
+        
+              <tr>  
+                <th>Departement Id</th>  
+                  <th>Departement Name</th>  
+                  <th>classes</th> 
+                   
+                  <th>Action</th>  
+                    
+              </tr>  
+      
+          <tbody>  
+               <tr *ngFor="let departement of departements "> 
+                <td>{{departement.departement_id}}</td>   
+                  <td><a href="{{'departementDetail/'+departement.departement_id}}">{{departement.departement_name|uppercase}}</a></td>  
+                  <td><li *ngFor="let classe of departement.classes">{{classe.classe_name}}</li></td>
+                  
+                  <td><button (click)="deleteDepartement(departement.departement_id)" class='btn btn-primary'>Delete</button>   
+                    <button (click)="updateDepartement(departement.departement_id)" class='btn btn-info'  >Update</button>  
+                  </td>  
+                </tr>   
+          </tbody><br>  
+      </table>  
+  </div>  
+
+  
+

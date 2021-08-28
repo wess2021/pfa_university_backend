@@ -1,0 +1,68 @@
+<h3 style="text-align: center;">Details Classe:{{classe.classe_name}}</h3>  
+ 
+<div>
+  <br>
+  <h2 style="text-align: center;">Etudiants</h2>
+  <br>
+<table style="text-align: center; " class="table table-success table-striped">
+  
+  <tr>
+    <th>ID</th>
+    <th>Etuidant Name</th>
+    <th>Telephone</th>
+    <th>Email</th>
+    <th>Cin</th>
+    
+  </tr>
+  <tr *ngFor="let etudiant of classe.etudiants" >
+    <td>{{etudiant.etudiant_id}}</td>
+    <td>{{etudiant.fullname_etu}}</td>
+    <td>{{etudiant.tel}}</td>
+    <td>{{etudiant.email}}</td>
+    <td>{{etudiant.cin}}</td>
+    </tr>
+</table>
+<div>
+  <br>
+  <h2 style="text-align: center;">Enseignants</h2>
+  <br>
+<table style="text-align: center; " class="table table-success table-striped">
+  
+  <tr>
+    <th>ID</th>
+    <th>Enseignats Name</th>
+    <th>Telephone</th>
+    <th>Email</th>
+    <th>Adresse</th>
+    
+  </tr>
+  <tr *ngFor="let enseignant of classe.enseignants" >
+    <td>{{enseignant.enseignant_id}}</td>
+    <td>{{enseignant.enseignant_fullname}}</td>
+    <td>{{enseignant.telephone}}</td>
+    <td>{{enseignant.email}}</td>
+    <td>{{enseignant.adresse}}</td>
+    </tr>
+</table>
+<div>
+  <div>
+    <br>
+    <h2 style="text-align: center;">Matieres</h2>
+    <br>
+  <table style="text-align: center; " class="table table-success table-striped">
+    
+    <tr>
+      <th>ID</th>
+      <th>matieres Name</th>
+    
+      
+    </tr>
+    <tr *ngFor="let matiere of classe.matieres" >
+      <td>{{matiere.matiere_id}}</td>
+      <td>{{matiere.matiere_name}}</td>
+   
+      </tr>
+  </table>
+  <div>
+  
+  

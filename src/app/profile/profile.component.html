@@ -1,0 +1,65 @@
+<div *ngIf="info.token; else loggedOut">
+ 
+  <button class="btn btn-secondary" (click)="logout()" >Logout</button>
+
+ 
+
+<h2 style="text-align: center;" class="text-primary">User Information</h2>
+
+
+<div>
+  <table style="text-align: center; " class="table table-success table-striped">
+    
+    <tr>
+     
+      <th>email</th>
+     
+      <th>username</th>
+      
+     
+      <th>photo de profile</th>
+     
+      <th>Birthday</th>
+      <th>Gender</th>
+      <th>Adresse</th>
+      <th>Phone Number</th>
+      <th>Action</th>
+  
+      
+    </tr>
+    <tr  >
+     
+      <td><a href="{{'userDetail/'+user.id}}">{{user.email|uppercase}}</a></td>
+  
+      <td>{{user.username}}</td>
+    
+      <td><a href="#"> <img  src="{{this.profileser.baseUrl+'imageprofile/'+profile.id}}" width="150" height="150"></a></td>
+      <td>{{profile.birthday}}</td>
+      <td>{{profile.gender}}</td>
+      <td>{{profile.adresse}}</td>
+      <td>{{profile.phoneNumber}}</td>
+      <td>
+        <div *ngIf="profile!=null; else add"> 
+          <button (click)="updateProfile(profile.id)" class='btn btn-info'  >Update</button>
+          <button (click)="deleteProfile(profile.id)" class='btn btn-primary'>Delete</button> 
+        </div> 
+        <ng-template #add>
+          
+          <button class='btn btn-info' (click)="addProfile()"> Ajouter</button>  
+        </ng-template>
+      
+      </td>  
+  
+      
+      
+     
+      
+      </tr>
+  </table>
+  </div>
+  
+
+</div>
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>

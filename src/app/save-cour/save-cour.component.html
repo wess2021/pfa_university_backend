@@ -1,0 +1,36 @@
+<form [formGroup]="coursaveform">
+  
+ <h2 style="text-align: center;">Add Cour</h2> 
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" id="title" formControlName="title" name="title">
+    <div *ngIf="coursaveform.controls.title.errors && (coursaveform.controls.title.touched||coursaveform.controls.title.dirty)" style="color: red;">
+      <div *ngIf="coursaveform.hasError('required','title')">
+        Title is required
+      </div>
+      <div *ngIf="coursaveform.hasError('minlength','title')">
+        FirstName need min 3 character Long
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label  for="content">content:</label>
+    <input type="text" class="form-control" id="content"  formControlName="content" name="content">
+    <div *ngIf="coursaveform.controls.content.errors && (coursaveform.controls.content.touched||coursaveform.controls.content.dirty)" style="color: red;">
+      <div *ngIf="coursaveform.hasError('required','content')">
+        Content is required
+      </div>
+      <div *ngIf="coursaveform.hasError('minlength','content')">
+        content need min 3 character Long
+      </div>
+    </div>
+  </div>
+  
+  
+    <div class="form-group">
+      <label  for="file">File upload:</label>
+      <input type="file" class="form-control" id="file"  formControlName="file" name="file" (change)="onSelectFile($event)" >
+    </div>
+  
+  <button type="submit" class="btn btn-primary" (click)="save(coursaveform)" [disabled]="!coursaveform.valid">Submit</button>
+</form>

@@ -1,0 +1,23 @@
+<h3 style="text-align: center;">Update Classe</h3>  
+ 
+<form (ngSubmit)="onsubmit(f)" #f= ngForm>  
+  <label for="id">Id:</label> 
+<input type="text" name="id"  [hidden] class="form-control" placeholder="id du classe"  [(ngModel)]="classe.id" >
+    <div class="form-group">  
+        <label for="classe_name">Classe Name</label>  
+        <input type="text" class="form-control"  data-toggle="tooltip" name="classe_name"  
+        data-placement="right" title="Enter classname" [(ngModel)]="classe.classe_name" >  
+        
+    </div>  
+  
+    <div class="form-group">
+      <label for="exampleInputEmail1">Departement</label>
+      
+<select   class="form-control"  (change)="onSelectFile($event)">
+<option *ngFor= "let departement of departements " value="{{departement.departement_id}}" name="departement_name" >{{departement.departement_name}}</option>
+</select>
+    </div>
+  <button class="btn btn-success" [disabled]=!f.valid>Submit</button>  
+</form>  
+
+

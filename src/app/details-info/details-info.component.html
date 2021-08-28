@@ -1,0 +1,28 @@
+<table style="text-align: center; " class="table table-success table-striped">
+  
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Content</th>
+    
+    <th>Updated AT</th>
+    <th>Created At</th>
+    <th>Cour PDF</th>
+ 
+
+  </tr>
+ 
+  <tr>
+    <td>{{info.id}}</td>
+    <td>{{info.title}}</td>
+    <td>{{info.content}}</td>
+    <td>{{info.updateDate| date:"dd/MM/yyyy HH:mm"}}</td>
+    <td>{{info.createdDate | date:"dd/MM/yyyy HH:mm"}}</td>
+    <td> 
+      <button (click)="download3(info.file)" class="btn btn-info" > {{info.file }}</button>
+  </td>
+ 
+ 
+  
+  </tr>
+</table>
